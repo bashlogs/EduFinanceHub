@@ -70,6 +70,7 @@ const sidebarNavItems = [
         display: 'News',
         icon: <FiPaperclip />,
         to: '/news',
+        section: 'news',
         sectionNumber: 0
     },
  /*   {
@@ -95,7 +96,6 @@ const sidebarNavItems = [
     }, */
     {
         display: 'Profile',
-        title: 'MY ACCOUNT',
         icon: <FiUser />,
         to: '/profile',
         section: 'profile',
