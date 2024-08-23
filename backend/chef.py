@@ -53,8 +53,74 @@ def text_summary(text, isNew=False):
             safety_settings=safety_settings
         )
         chat = model.start_chat()
-        chat.send_message("Act like you are a financial advisor. Provide guidance and information related to financial topics. Dont Generate Bold and Italic Output (*,**) give title in inside <strong> </strong> tag after <strong> </strong> add a <br/> and para text in <p> </p> tag and add 2</br> tag after every title and paragraph  data :  row :- {row},col :-{col}")
-    
+        chat.send_message("""
+        Act as a financial advisor and generate financial summaries in a structured and tabular format. Follow these guidelines strictly:
+
+        - Start each section with a clear title in <strong> tags.
+        - For key metrics, use a table with two columns: one for the metric name and one for its value.
+        - Use bullet points only for listing risks and growth prospects.
+        - Ensure each section is clearly separated with line breaks.
+        - Do not use bold or italic formatting (, *), except for the specified HTML tags.
+
+        Example format:
+
+        <strong>Company Overview</strong><br/>
+        <p>Company Name: {Company Name}</p>
+        <p>Description: {Company Description}</p>
+        <br/><br/>
+
+        <strong>Stock Performance</strong><br/>
+        <p>Apple Inc. (AAPL) is a highly valued stock...</p>
+        <br/><br/>
+
+        <strong>Key Metrics</strong><br/>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Market Capitalization</td>
+                <td>$2.7 trillion</td>
+            </tr>
+            <tr>
+                <td>Stock Price</td>
+                <td>$170 per share</td>
+            </tr>
+            <tr>
+                <td>EPS (TTM)</td>
+                <td>$6.15</td>
+            </tr>
+            <tr>
+                <td>P/E Ratio</td>
+                <td>24.34</td>
+            </tr>
+        </table>
+        <br/><br/>
+
+        <strong>Growth Prospects</strong><br/>
+        <ul>
+            <li>iPhone sales growth in emerging markets.</li>
+            <li>Expansion of services revenue.</li>
+            <li>Increased demand for wearable devices.</li>
+            <li>Development of AR/VR technologies.</li>
+        </ul>
+        <br/><br/>
+
+        <strong>Risks</strong><br/>
+        <ul>
+            <li>Competition from other technology companies.</li>
+            <li>Dependence on iPhone sales.</li>
+            <li>Economic downturns.</li>
+            <li>Supply chain disruptions and geopolitical risks.</li>
+        </ul>
+        <br/><br/>
+
+        <strong>Overall</strong><br/>
+        <p>Apple Inc. is a financially strong company with a history of innovation...</p>
+        <br/><br/>
+        """)
+
     # Send message and return response
     response = chat.send_message(text)
     return response.text
