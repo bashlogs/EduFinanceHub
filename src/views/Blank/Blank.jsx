@@ -47,10 +47,6 @@ function RecipeChatbot() {
 
   return (
     <div>
-
-      {/* Chat bubbles */}
-      {/*responses.map: Iterates over the responses array and renders each message as a chat bubble.
-      RiRobot2Line and FaUser: Conditionally renders the robot or user icon based on the message index.*/ }
       {responses.map((response, index) => (
         <div key={index} className={`flex items-start gap-2.5 mt-3 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
           {
