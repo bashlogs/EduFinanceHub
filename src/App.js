@@ -21,7 +21,7 @@ import ResearchBased from './views/Scholarship/ResearchBased';
 import ViewUserScholarships from './views/Scholarship/ViewUserScholarships';
 import Investments from './views/Investments/Investments';
 import News from './views/News/News';
-
+import Stock from './views/Stocks/Stocks';
 function App() {
   return (
     <div className="App">
@@ -49,6 +49,7 @@ function App() {
             <Route path='/view-scholarships' element={<ViewUserScholarships/>}/>
             <Route path='/investments' element={<Investments/>}/>
             <Route path='/news' element={<News/>}/>
+            <Route path='/stock' element={<Stock/>}/>
           </Route>
         </Route>
       </Routes>

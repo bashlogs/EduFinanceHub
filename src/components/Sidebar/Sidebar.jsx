@@ -73,6 +73,13 @@ const sidebarNavItems = [
         section: 'news',
         sectionNumber: 0
     },
+    {
+        display: 'Stock Calculator',
+        icon: <FiPaperclip />,
+        to: '/stock',
+        section: 'stock',
+        sectionNumber: 0
+    },
  /*   {
         display: 'Budget Guessing',
         title: 'FINANCE EXPLORER GAMES',
