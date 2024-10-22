@@ -42,3 +42,9 @@ pip install -r requirements.txt
 python app.py
 ```
 
+4. Login ID/Password
+```
+Email Id - vedika@gmail.com
+Password - Vedika@2003#
+```
+

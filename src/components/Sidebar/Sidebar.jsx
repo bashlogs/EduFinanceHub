@@ -22,69 +22,69 @@ const sidebarNavItems = [
         icon: <FiSidebar />,
         to: '/',
         section: '',
-        sectionNumber: 0
+        sectionNumber: 1
     },
     {
         display: 'Income',
         icon: <FiTrendingUp />,
         to: '/incomes',
         section: 'incomes',
-        sectionNumber: 0
+        sectionNumber: 2
     },
     {
         display: 'Expense',
         icon: <FiShoppingBag />,
         to: '/expenses',
         section: 'expenses',
-        sectionNumber: 0
+        sectionNumber: 3
     },
     {
         display: 'Goals',
         icon: <FiThumbsUp />,
         to: '/goals',
         section: 'goals',
-        sectionNumber: 0
+        sectionNumber: 4
     },
     {
         display: 'Finance Advisor AI',
         icon: <RiRobot2Line />,
         to: '/commons',
         section: 'commons',
-        sectionNumber: 1
+        sectionNumber: 5
     },
     {
         display: 'Scholarship',
         icon: <RiRobot2Line />,
         to: '/scholarship',
         section: 'scholarship',
-        sectionNumber: 2
+        sectionNumber: 6
     },
    {
         display: 'Investments',
         icon: <FiThumbsUp />,
         to: '/investments',
         section: 'investments',
-        sectionNumber: 0
+        sectionNumber: 7
     },
     {
         display: 'News',
         icon: <FiPaperclip />,
         to: '/news',
         section: 'news',
-        sectionNumber: 0
+        sectionNumber: 8
     },
     {
         display: 'Stock Calculator',
         icon: <FiPaperclip />,
         to: '/stock',
         section: 'stock',
-        sectionNumber: 0
+        sectionNumber: 9
     },
     {
         display: 'Stock Prediction',
         icon: <FiPaperclip />,
-        to: '/stock_prediction',
-        section: 'Stock Prediction',
+        to: '/prediction',
+        section: 'prediction',
         sectionNumber: 0
     },
  /*   {

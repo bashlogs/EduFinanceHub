@@ -22,7 +22,7 @@ import ViewUserScholarships from './views/Scholarship/ViewUserScholarships';
 import Investments from './views/Investments/Investments';
 import News from './views/News/News';
 import Stock from './views/Stocks/Stocks';
-import StockPrediction from './views/StockPrediction/StockPrediction';
+import Prediction from './views/StockPrediction/StockPrediction';
 function App() {
   return (
     <div className="App">
@@ -51,7 +51,7 @@ function App() {
             <Route path='/investments' element={<Investments/>}/>
             <Route path='/news' element={<News/>}/>
             <Route path='/stock' element={<Stock/>}/>
-            <Route path='/stock_prediction' element={<StockPrediction />}/>
+            <Route path='/prediction' element={<Prediction />}/>
           </Route>
         </Route>
       </Routes>
