@@ -46,7 +46,7 @@ const Login = () => {
                 <img src="https://res.cloudinary.com/dfbloaduq/image/upload/v1651981731/MoneyFy/Login_fbgcos.png" alt="" />
                 </div>
                 <div className='col-lg-4'>
-                    <h2 className='title'>Welcome to MoneyFy</h2>
+                    <h2 className='title'>Welcome to EduFinance Hub</h2>
                     <div>
                         <p className='inline'>You dont have an Account?</p>
                         <Link to={'/register'}> <u>Sign up</u></Link>

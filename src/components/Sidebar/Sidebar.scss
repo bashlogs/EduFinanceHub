@@ -4,7 +4,9 @@
     left: 0;
     height: 100vh;
     width: 260px;
-    background-color: #fff;
+    background-color: #142d70;
+
+    color: white !important;
 
     &__logo {
         display: grid;
@@ -18,6 +20,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        color: whitesmoke;
+        font-weight: bolder;
+
+
+        a {
+            color: whitesmoke;
+
+        }
     }
 
     h3 {
@@ -30,7 +40,7 @@
 
     &__menu {
         position: relative;
-        
+
         &__item {
             display: flex;
             align-items: center;
@@ -38,7 +48,7 @@
             padding: 1rem 4rem;
             font-size: 1.4rem;
             font-weight: 400;
-            color: #555555;
+            color: #e3e3e3;
             transition: color 0.2s ease-in-out;
 
             &.active {
@@ -64,9 +74,11 @@
     }
 }
 
-a:link, a:visited, a:active {
+a:link,
+a:visited,
+a:active {
     text-decoration: none;
-    color:  #555555;
+    color: whitesmoke;
 }
 
 .button-out {
@@ -81,19 +93,22 @@ a:link, a:visited, a:active {
     margin-bottom: 3rem;
     background: none;
     transition: all .5s ease;
-    color:  #555555;
+    color: #555555;
 }
 
 .button-out:hover {
     background-color: rgb(241, 241, 241);
 }
 
-.icon-out{
+.icon-out {
     margin-right: 1rem;
 }
 
 hr {
-    border: 1px solid gray-500; /* Example border style */
-    border-width: 2px 0; /* Adjust thickness as needed */
-    margin: 10px 0; /* Example margin */
-  }
+    border: 1px solid gray-500;
+    /* Example border style */
+    border-width: 2px 0;
+    /* Adjust thickness as needed */
+    margin: 10px 0;
+    /* Example margin */
+}

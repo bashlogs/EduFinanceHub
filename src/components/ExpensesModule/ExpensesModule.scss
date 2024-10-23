@@ -1,7 +1,7 @@
 .ExpensesModule {
     border-radius: 20px;
     background-color: white;
-    box-shadow: 1px 1px 15px 0px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.1);
     padding: 2.5rem;
     margin: 1rem;
     width: 92%;
@@ -10,13 +10,15 @@
         margin: 0;
         font-weight: 300;
     }
-    .total{
+
+    .total {
         display: flex;
         align-items: baseline;
+        min-width: fit-content;
         width: 100%;
         overflow: hidden;
 
-        .total-number{
+        .total-number {
             font-size: 4rem;
         }
     }

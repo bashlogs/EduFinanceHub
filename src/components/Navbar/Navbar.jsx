@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext';
 import Modal from '../Modal/Modal';
 
-import { FiPlus, FiBarChart } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 
 import './Navbar.scss'
 import Input from '../Input/Input';
@@ -35,7 +35,7 @@ const Navbar = () => {
         <>
             <div className='navbar'>
                
-                <NavLink className={'logo'} to='/home'>
+                <NavLink className={'logo'} to='/'>
                {/*  <FiBarChart style={{ marginRight: '1rem'}}/> */}
                 EduFinance Hub
                 </NavLink>
@@ -52,6 +52,7 @@ const Navbar = () => {
                     )
                     :
                     (<div className='flexy'>
+                        <NavLink to='/home'>Home</NavLink>
                         <NavLink to='/login'>Login</NavLink>
                         <NavLink to='/register'>Register</NavLink>
                     </div>)

@@ -8,7 +8,7 @@
     .inline {
         display: inline !important;
         font-weight: 400;
-        
+        color: #ffff;
     }
     
     .title {
@@ -16,6 +16,7 @@
         font-size: 4rem;
         font-weight: 400;
         line-height: 5rem;
+        color: #ffff;
     }
     .img-div {
         display: flex;
@@ -38,7 +39,7 @@
             justify-content: flex-start;
             flex-direction: column;
             margin-bottom: 0.75rem;
-            
+            color: #ffff;
                 .invalid {
                     border: 1px solid #ff0000;
                     border-radius: 2px;
@@ -72,7 +73,7 @@
     height: 40px;
     border-radius: 10px;
     border: 1px solid rgb(209, 209, 209);
-    color: rgb(101, 101, 101);
+    color: rgb(255, 255, 255);
     font-size: 1.5rem;
     padding-left: 10px;
 }

@@ -43,7 +43,7 @@ const Register = () => {
                 <img src="https://res.cloudinary.com/dfbloaduq/image/upload/v1651981731/MoneyFy/Login_fbgcos.png" alt="" />
                 </div>
                 <div className='col-lg-4'>
-                    <h2 className='title'>Welcome to MoneyFy</h2>
+                    <h2 className='title'>Welcome to EduFinance Hub</h2>
                     <div>
                         <p className='inline'>Already have an Account?</p>
                         <Link to={'/login'}> <u>Sign In</u></Link>

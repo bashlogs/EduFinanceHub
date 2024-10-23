@@ -11,7 +11,6 @@ import {
     FiLogOut
 } from "react-icons/fi";
 import { RiRobot2Line } from "react-icons/ri";
-import { GiJoystick, GiChessQueen, GiPokerHand } from 'react-icons/gi'; // Game Icons
 
 import './Sidebar.scss';
 import { logout } from '../../store/AccessTokenStore';
@@ -21,57 +20,49 @@ const sidebarNavItems = [
         display: 'Dashboard',
         icon: <FiSidebar />,
         to: '/',
-        section: '',
-        sectionNumber: 1
+        section: 'dashboard',
     },
     {
         display: 'Income',
         icon: <FiTrendingUp />,
         to: '/incomes',
         section: 'incomes',
-        sectionNumber: 2
     },
     {
         display: 'Expense',
         icon: <FiShoppingBag />,
         to: '/expenses',
         section: 'expenses',
-        sectionNumber: 3
     },
     {
         display: 'Goals',
         icon: <FiThumbsUp />,
         to: '/goals',
         section: 'goals',
-        sectionNumber: 4
     },
     {
         display: 'Finance Advisor AI',
         icon: <RiRobot2Line />,
         to: '/commons',
         section: 'commons',
-        sectionNumber: 5
     },
     {
-        display: 'Scholarship',
+        display: "Scholarship",
         icon: <RiRobot2Line />,
-        to: '/scholarship',
-        section: 'scholarship',
-        sectionNumber: 6
+        to: "/scholarship",
+        section: "scholarship",
     },
-   {
-        display: 'Investments',
-        icon: <FiThumbsUp />,
-        to: '/investments',
-        section: 'investments',
-        sectionNumber: 7
-    },
+    // {
+    //     display: 'Investments',
+    //     icon: <FiThumbsUp />,
+    //     to: '/investments',
+    //     section: 'investments',
+    // },
     {
         display: 'News',
         icon: <FiPaperclip />,
         to: '/news',
         section: 'news',
-        sectionNumber: 8
     },
     {
         display: 'Stock Calculator',
@@ -87,40 +78,24 @@ const sidebarNavItems = [
         section: 'prediction',
         sectionNumber: 0
     },
- /*   {
-        display: 'Budget Guessing',
-        title: 'FINANCE EXPLORER GAMES',
-        icon: <GiChessQueen />,
-        url: 'https://6698b18bd6b9114e37a99c17--adorable-chimera-4a4a1a.netlify.app/',
-        sectionNumber: 3
-    },
     {
-        display: 'Credit Decision',
-        icon: <GiPokerHand />,
-        url: 'https://6698b353229abc5078b8b5a2--monumental-sunflower-f75b4d.netlify.app/',
-        section: 'profile',
-        sectionNumber: 3
+        display: 'Financial Tracker',
+        icon: <FiPaperclip />,
+        to: '/financial_tracker',
+        section: 'financial_tracker',
+        sectionNumber: 0
     },
-    {
-        display: 'Loan Interview',
-        icon: <GiJoystick />,
-        url: 'https://6698b47c2b97e7509331ca90--wondrous-salamander-c3ec3b.netlify.app/',
-        section: 'profile',
-        sectionNumber: 3
-    }, */
     {
         display: 'Profile',
         icon: <FiUser />,
         to: '/profile',
         section: 'profile',
-        sectionNumber: 4
     },
     {
         display: 'Logout',
         icon: <FiLogOut />,
         to: '/login',
-        section: 'profile',
-        sectionNumber: 4
+        section: 'logout',
     },
 ];
 
@@ -132,9 +107,14 @@ const Sidebar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const curPath = location.pathname.split('/')[1];
-        const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
-        setActiveIndex(curPath.length === 0 ? 0 : activeItem);
+        const curPath = location.pathname;
+
+        // Match 'scholarship' for both '/scholarship' and '/merit-based-scholarships'
+        const activeItem = sidebarNavItems.findIndex(item =>
+            curPath.includes(item.section)
+        );
+
+        setActiveIndex(activeItem !== -1 ? activeItem : 0);
     }, [location]);
 
     useEffect(() => {
@@ -174,33 +154,17 @@ const Sidebar = () => {
                 />
 
                 {sidebarNavItems.map((item, index) => (
-                    item.url ? (
-                        <a href={item.url} target="_blank" rel="noopener noreferrer" key={index}>
-                            {item.title && <h3 className='sidebar__title'><b><hr/></b>{item.title}<b><hr/></b></h3>}
-                            <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
-                                <div className="sidebar__menu__item__icon">
-                                    {item.icon}
-                                </div>
-                                <div className="sidebar__menu__item__text">
-                                    {item.display}
-                                </div>
+                    <Link to={item.to} key={index}>
+                        <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
+                            <div className="sidebar__menu__item__icon">
+                                {item.icon}
                             </div>
-                        </a>
-                    ) : (
-                        <Link to={item.to} key={index}>
-                            {item.title && <h3 className='sidebar__title'><b><hr/></b>{item.title}<b><hr/></b></h3>}
-                            <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
-                                <div className="sidebar__menu__item__icon">
-                                    {item.icon}
-                                </div>
-                                <div className="sidebar__menu__item__text">
-                                    {item.display}
-                                </div>
+                            <div className="sidebar__menu__item__text">
+                                {item.display}
                             </div>
-                        </Link>
-                    )
+                        </div>
+                    </Link>
                 ))}
-
             </div>
         </div>
     );

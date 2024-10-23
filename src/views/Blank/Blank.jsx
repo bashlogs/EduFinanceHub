@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa"; // Imports icons from the react-icons library to use in the UI.
 import { RiRobot2Line } from "react-icons/ri";
+import './Blank.css';
 
 function RecipeChatbot() {
   const [prompt, setPrompt] = useState('');
@@ -46,29 +47,29 @@ function RecipeChatbot() {
   };
 
   return (
-    <div>
+    <div className="chat-container">
       {responses.map((response, index) => (
-        <div key={index} className={`flex items-start gap-2.5 mt-3 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
-          {
-            index % 2 === 0 ? <RiRobot2Line className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-600 p-2" /> : <FaUser className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-600 p-2" />
-          }
-          <div className={`flex flex-col w-full max-w-[500px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-lg dark:bg-gray-700 ${index % 2 === 0 ? 'rounded-l-lg rounded-br-lg' : 'rounded-r-lg rounded-bl-lg'}`}>
-            <div className="flex items-center space-x-2 rtl:space-x-reverse">
-              <span className="text-xl font-semibold text-xl-gray-900 dark:text-white">{index % 2 === 0 ? 'Financial Advisor AI' : 'You'}</span>
-              <span className="text-xl font-normal text-xl-gray-500 dark:text-gray-400"> {
-                // display time
-                new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-              } </span>
-            </div> {/*  Safely renders HTML content from the responses. */}
-            <div className="text-xl font-normal py-2.5 text-gray-900 dark:text-white" dangerouslySetInnerHTML={renderHTML(response)}></div>
+        <div key={index} className={`message-row ${index % 2 === 0 ? '' : 'reverse'}`}>
+          {index % 2 === 0 ? (
+            <RiRobot2Line className="message-avatar" />
+          ) : (
+            <FaUser className="message-avatar" />
+          )}
+          <div className={`message-bubble ${index % 2 !== 0 ? 'user' : ''}`}>
+            <div dangerouslySetInnerHTML={renderHTML(response)}></div>
           </div>
         </div>
       ))}
 
-      {/* Chat input form */}
-      <form className="fixed bottom-1 left-0 right-0 mx-auto max-w-6xl w-full flex items-center gap-3 mt-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg dark:shadow-dark-lg" onSubmit={handlePrompt}>
-        <input type="text" placeholder="Type a message" className="w-full px-4 py-2.5 text-xl text-gray-900 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-700 dark:text-white dark:border-gray-600" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
-        <button type="submit" className="text-xl-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-xl px-5 py-2.5" disabled={isLoading}>
+      <form className="chat-form" onSubmit={handlePrompt}>
+        <input
+          type="text"
+          placeholder="Type a message"
+          className="chat-input"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
+        <button type="submit" className="send-button" disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Send'}
         </button>
       </form>

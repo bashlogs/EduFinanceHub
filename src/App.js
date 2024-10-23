@@ -23,6 +23,7 @@ import Investments from './views/Investments/Investments';
 import News from './views/News/News';
 import Stock from './views/Stocks/Stocks';
 import Prediction from './views/StockPrediction/StockPrediction';
+import Records from './views/Records/Records';
 function App() {
   return (
     <div className="App">
@@ -52,6 +53,7 @@ function App() {
             <Route path='/news' element={<News/>}/>
             <Route path='/stock' element={<Stock/>}/>
             <Route path='/prediction' element={<Prediction />}/>
+            <Route path='/financial_tracker' element={<Records/>}/>
           </Route>
         </Route>
       </Routes>
