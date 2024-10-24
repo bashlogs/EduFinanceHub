@@ -10,14 +10,11 @@ const News = () => {
   const [news, setNews] = useState([]);
 
   const fetchNews = async () => {
-    const today = moment().format("YYYY-MM-DD");
-    const fromDate = moment().subtract(days, 'days').format("YYYY-MM-DD");
-
-    const url = `https://newsapi.org/v2/everything?q=${query}&from=${fromDate}&to=${today}&sortBy=popularity&language=en&apiKey=460479ede489408c8da194b6638e7d16`;
-    
     try {
-      const response = await axios.get(url);
-      setNews(response.data.articles.slice(0, 10));
+      const response = await axios.get(`https://khadde.pythonanywhere.com/news`, {
+        params: { query, days }
+      });
+      setNews(response.data);
     } catch (error) {
       console.error("Error fetching the news", error);
     }
